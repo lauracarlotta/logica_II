@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body { 
+            background-color: #000;
+        }
+
+    </style>
+
+    <title>Formas geométricas</title>
+</head>
+
+<body>
+    
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+
+        // retangulo maior cinza
+        pincel.fillStyle = 'lightgray'; // cor
+        pincel.fillRect(0, 0, 600, 400); // coordenada e tamanho
+
+        // retangulo faixa verde
+        pincel.fillStyle = 'green';
+        pincel.fillRect(0, 0, 200, 400);
+
+        // retangulo faixa vermelha
+        pincel.fillStyle = 'red';
+        pincel.fillRect(400, 0, 200, 400);
+
+        // trinagulo amarelho
+        pincel.fillStyle = 'yellow'; // cor
+        pincel.beginPath(); // BEGIN = COMEÇO // PATH = CAMINHO // caminho de inicio => de onde começar;
+        pincel.moveTo(300, 200); // .moveTo = MOVER PARA;
+        pincel.lineTo(200, 400); // .lineTo = LINHA PARA (onde?);
+        pincel.lineTo(400, 400); 
+        pincel.fill(); // prencha;
+
+        // círculo azul
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        /* pincel. */
+
+    </script>
+
+</body>
+
+</html>

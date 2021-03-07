@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <style>
+        canvas {
+            background-color: blue;
+        }
+    </style> -->
+
+    <title>Programa no Canvas</title>
+</head>
+
+<body>
+    
+    <canvas width="600" height="400">
+        <!-- no google procuro => empty canvas <= me dará uma tela em branco, uma área pra eu desenhar. -->
+    </canvas>
+
+    <script>
+
+        let tela = document.querySelector('canvas'); 
+        // coloco a tag
+
+        let pincel = tela.getContext('2d');
+        // como eu quero desenhar, eu faço uma variável pincel e faço com que ele receba com que tipo de pincel eu quero pintar a minha tela, usando o .getContext('2d') [poderia ser 3d, 4d, não importa. Nesse caso, usaremos o 2d]
+        // como "convocamos" o pincel através da tela, tudo o que ele fará será a respeito da tela.
+
+        pincel.fillStyle = 'lightgray'; // (1º eu digo a cor e depois o espaço que eu quero preencher)
+        // recebe uma atribuição (uma propriedade como se fosse uma variável) porque .fillStyle não é uma função!
+        // É como se fosse isso: let fillStyle = 'lightgray';
+
+
+        //              X  Y  width height = onde começa no plano cartesiano e a largura e altura
+        pincel.fillRect(0, 0, 600, 400);
+        // fill = preencher ** rect = abreviação de rectangle (retangulo); Como o .fillRect() não fez curso da mãe Diná, temos que dizer pra ele onde, de que ponto, começar a preencher. Conforme o plano cartesiano da tela (onde X é horizontal e Y é vertical), nosso plano carteasiano começa no canto superior esquerdo da tela. 
+        // não adianta eu colocar [pincel.fillRect(0, 0, 800, 600)] se na minha tag canvas eu já determinei que a largura e a altura dela é de 600x400. Sempre precisamos respeitar a tag.
+    </script>
+
+</body>
+
+</html>
