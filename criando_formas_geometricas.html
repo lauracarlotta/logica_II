@@ -48,11 +48,13 @@
 
         // círculo azul
         pincel.fillStyle = 'blue';
-        pincel.beginPath();
-        /* pincel. */
+        pincel.beginPath(); // fizemos um novo caminho pra não usar o do triangulo;
+        pincel.arc(300, 200, 50, 0, 2 * Math.PI); // ARC = ARCO // (X, Y, raio, anguloInicial, anguloFinal EM RADIANDOS); (EM 2 * MATH.PI, O PROFESSOR COLOCOU 3.14 QUE É A MEDIDA INICIAL DE PI. NA DOCUMENTAÇÃO ESTÁ ASSIM: MATH.PI)
+        pincel.fill();
 
     </script>
 
+        <!-- [getContext(), fillStyle, fillRect, arc, ...] Essas funções são APIs (bibliotecas ques existem no JS) que nos permitem executar o que fizemos nessa aula. Podemos consulta a documentação (canvas 2d API no google) -->
 </body>
 
 </html>
