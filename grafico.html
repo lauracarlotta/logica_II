@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Browsers</title>
+</head>
+
+<body>
+    
+    <canvas width="1000" height="600"></canvas>
+
+    <script>
+
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d'); 
+
+        pincel.fillStyle = 'lightgray';
+        pincel.fillRect(50, 50, 600, 400);
+
+        function desenhaRetangulo(cor, eixoX, eixoY, largura, altura) {
+
+            pincel.fillStyle = cor;
+            pincel.fillRect(eixoX, eixoY, largura, altura);
+            pincel.strokeStyle = 'black';
+            pincel.strokeRect(eixoX, eixoY, largura, altura);
+        }
+
+        function desenhaTexto(texto, eixoX, eixoY) {
+
+            pincel.font = '15px ubuntu';
+            pincel.fillStyle = 'black';
+            pincel.fillText(texto, eixoX, eixoY);
+        }
+
+        desenhaTexto('Estudo realizado entre 2015 e 2016 sobre os browsers Chrome, Firefox, Safari e outros.', 50, 480);
+
+        // 2015
+        desenhaRetangulo('red', 200, 445, 100, 5); // outros 5%
+        desenhaRetangulo('yellow', 200, 425, 100, 20) // safari 20%
+        desenhaRetangulo('green', 200, 400, 100, 25); // Firefox 25%
+        desenhaRetangulo('blue', 200, 350, 100, 50); // Chrome 50%
+
+        desenhaTexto('2015', 230, 340);
+
+
+        // 2016
+        desenhaRetangulo('red', 400, 448, 100, 2); // outros 2%
+        desenhaRetangulo('yellow', 400, 435, 100, 13); // safari 13%
+        desenhaRetangulo('green', 400, 415, 100, 20); // Firefox 20%
+        desenhaRetangulo('blue', 400, 350, 100, 65); // Chrome 65%
+
+        desenhaTexto('2016', 430, 340);
+
+        // Legenda
+        desenhaTexto('LEGENDA:', 60, 80);
+
+        desenhaRetangulo('blue', 60, 90, 30, 30); // Chrome
+        desenhaTexto('Chrome', 100, 110);
+
+        desenhaRetangulo('green', 60, 130, 30, 30); // Firefox
+        desenhaTexto('Firefox', 100, 150);
+
+        desenhaRetangulo('yellow', 60, 170, 30, 30); // Safari
+        desenhaTexto('Safari', 100, 190);
+
+        desenhaRetangulo('red', 60, 210, 30, 30); // Outros(Opera, Edge, IE, etc)
+        desenhaTexto('Outros(Opera, Edge, IE, etc)', 100, 230);
+
+    </script>
+
+</body>
+
+</html>

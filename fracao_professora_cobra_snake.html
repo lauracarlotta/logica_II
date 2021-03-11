@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajudando a professora com a Cobra Snake</title>
+</head>
+
+<body>
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+
+        pincel.fillStyle = 'lightgray';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaQuadrado(eixoX, eixoY, tamanho, cor) {
+
+            pincel.fillStyle = cor;
+            pincel.fillRect(eixoX, eixoY, tamanho, tamanho);
+            pincel.strokeStyle = 'black';
+            pincel.strokeRect(eixoX, eixoY, tamanho, tamanho);
+        }
+
+        function desenhaSnake(eixoY) {
+            
+            desenhaQuadrado(2, eixoY, 50,'green');
+            desenhaQuadrado(52, eixoY, 50,'green');
+            desenhaQuadrado(102, eixoY, 50,'green');
+            desenhaQuadrado(152, eixoY, 50,'white');
+        }
+
+        function desenhaTexto(texto, eixoX, eixoY){
+
+            pincel.font = '20px ubuntu';
+            pincel.fillStyle = 'black';
+            pincel.fillText(texto, eixoX, eixoY);
+        }
+
+        desenhaTexto('Qual é a fração?', 15, 30);
+
+        desenhaSnake(50);
+        
+    </script>
+
+</body>
+
+</html>
