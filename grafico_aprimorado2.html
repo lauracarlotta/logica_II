@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Browsers (APRIMORADO 2)</title>
+</head>
+
+<body>
+    
+    <canvas width="800" height="600"></canvas>
+
+    <script>
+
+    let tela = document.querySelector('canvas');
+    let pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(50, 50, 600, 400);
+    
+    function desenhaRetangulo(eixoX, eixoY, largura, altura, cor) {
+        
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(eixoX, eixoY, largura, altura);
+        pincel.strokeStyle ='black';
+        pincel.strokeRect(eixoX, eixoY, largura, altura);
+    }
+
+    function desenhaQuadrado(eixoX, eixoY, cores) {
+
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cores;
+        pincel.fillRect(eixoX, eixoY, 40, 40);
+        pincel.strokeStyle = 'Black'; 
+        pincel.strokeRect(eixoX, eixoY, 40, 40);
+    }
+
+    function desenhaTexto(eixoX, eixoY, texto) {
+        
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+        pincel.font = '15px Georgia';
+        pincel.fillStyle = 'black';
+        pincel.fillText(texto, eixoX, eixoY);    
+    }
+
+    function desenhaBarra(eixoX, eixoY, serie, cores, texto) {
+
+        desenhaTexto(eixoX + 30, eixoY - 10, texto);
+
+        let somaAltura = 0;
+
+        for (let indice = 0; indice < serie.length; indice++){
+
+            let altura = serie[indice];
+
+            desenhaRetangulo(eixoX, eixoY + somaAltura, 100, altura, cores[indice]);
+            somaAltura = somaAltura + altura;
+        }
+        
+    } 
+
+    function desenhaLegenda(eixoX, eixoY, cores, navegadores) { // eu acrescentei
+
+        let indice = 0;
+
+        for (let eixoY = 80; eixoY < 240; eixoY += 40) {
+
+            desenhaQuadrado(80, eixoY, cores[indice]);
+            indice++;
+        }
+
+        let posicao = 0;
+
+        for (let eixoY = 80; eixoY < 240; eixoY += 40) {
+
+            desenhaTexto(eixoX + 50, eixoY + 25, navegadores[posicao])
+            posicao++
+        }
+    
+    }
+
+    let navegadores = ['Google', 'Firefox', 'Safari', 'Outros'];
+    let serie2015 = [50, 25, 20, 5];
+    let serie2016 = [65, 20, 13, 2];
+    let cores = ['blue', 'green', 'yellow', 'red'];
+
+    desenhaTexto(60, 70, 'LEGENDA:'); 
+
+    desenhaLegenda(80, 90, cores, navegadores);
+
+    desenhaBarra(200, 350, serie2015, cores, '2015');
+
+    desenhaBarra(400, 350, serie2016, cores, '2016');
+
+    desenhaTexto(10, 480, 'Estudo realizado entre 2015 e 2016 sobre os browsers Chrome, Firefox, Safari e outros.'); // eu acrescentei
+
+
+    </script>
+
+</body>
+
+</html>

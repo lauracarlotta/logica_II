@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso primeiro jogo</title>
+</head>
+
+<body>
+    
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+
+        pincel.fillStyle = 'gray';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaCirculo(evento) {
+
+            let eixoX = evento.pageX - tela.offsetLeft; //.pageX ou Y é para pegar o eixo x e y do click, mas como nesse momento está pegando da tela e não do canvas, acrescentamos o seguinte: - tela.offsetLeft e .offsetTop. 
+            let eixoY = evento.pageY - tela.offsetTop;
+
+            pincel.fillStyle = 'red';
+            pincel.beginPath();
+            pincel.arc(eixoX, eixoY, 10, 0, 2 * Math.PI);
+            pincel.fill();
+
+            console.log(evento);
+        }
+
+        tela.onclick = desenhaCirculo; // eventos
+
+        // Por debaixo dos panos quem "chama" o 'exibeAlerta' é o navegador quando eu clico no canvas! Quando ele ouve um click no canvas, ele chama a função determinada!
+        
+
+    </script>
+
+</body>
+
+</html>
