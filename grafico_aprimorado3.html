@@ -86,9 +86,17 @@
     
     }
 
-    let navegadores = ['Google', 'Firefox', 'Safari', 'Outros'];
+    let navegadores = ['Chrome', 'Firefox', 'Opera', 'Safari', 'Vivaldi'];
+
+    function emContrucao(item) {
+        desenhaTexto(eixoX + 50, eixoY + 25, item)
+    }
+
+    navegadores.forEach(emContrucao);
+
     let serie2015 = [50, 25, 20, 5];
     let serie2016 = [65, 20, 13, 2];
+    let navegadores = ['Google', 'Firefox', 'Safari', 'Outros'];
     let cores = ['blue', 'green', 'yellow', 'red'];
 
     desenhaTexto(60, 70, 'LEGENDA:'); 

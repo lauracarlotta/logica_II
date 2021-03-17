@@ -1,0 +1,38 @@
+<script>
+
+    let lista = [];
+
+    function imprimeTexto(texto) {
+
+        document.write(`<big> ${texto} </big>`);
+        document.write(`<br>`);
+    }
+
+    function fizzbuzz(number) {
+
+        let numero = number;
+
+        if (numero % 3 == 0 && numero % 5 == 0) {
+        
+            numero = "Fizzbuzz";
+
+        } else if (numero % 3 == 0) {
+
+            numero = "Fizz";
+
+        } else if (numero % 5 == 0) {
+
+            numero = "Buzz";
+
+        } 
+
+        imprimeTexto(numero);
+    }
+    
+    for (let indice = 1; indice <= 100; indice++){
+        lista.push(indice);
+    }
+
+    lista.forEach(fizzbuzz);
+
+</script>

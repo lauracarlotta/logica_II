@@ -1,12 +1,39 @@
-<script>
 
     let navegadores = ['Chrome', 'Firefox', 'Opera', 'Safari', 'Vivaldi'];
+    
+    let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    let listaNumeros = [12, 25, 94, 32, 27, 55];
+
+    function multiplica(numero) {
+        let resultado = numero * numero;
+        console.log(resultado);
+    }
 
     function imprime(item) {
         console.log(item);
     }
 
-    navegadores.forEach(imprime);
+    function imprimePares(numero) {
+        if (numero % 2 == 0){
+            console.log(numero);
+        }
+    }
+
+    function imprimeImpares(numero) {
+        if (numero % 2 != 0) {
+            console.log(numero);
+        }
+    }
+
+    
+    listaNumeros.forEach(imprimePares);
+
+    listaNumeros.forEach(imprimeImpares);
+
+    /* navegadores.forEach(imprime); */
+
+    /* numeros.forEach(multiplica); */
 
 
 
@@ -33,4 +60,3 @@
 
     console.log(numeros[posicao]);
    } */
-</script>
